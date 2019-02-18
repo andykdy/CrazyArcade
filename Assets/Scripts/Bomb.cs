@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
     public float countdown = 2f;
     public float explosionPower;
-    public GameObject player;
+    public GameObject owner;
+
 
     // Update is called once per frame
     void Update()
@@ -13,19 +16,24 @@ public class Bomb : MonoBehaviour
         if (countdown <= 0f)
         {
             FindObjectOfType<MapDestructor>().Explode(transform.position, explosionPower);
-            //player.GetComponent<Controller>().myBombs.Dequeue();
             Destroy(gameObject);
+            owner.GetComponent<Character>().dequeueBomb();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Hazard"))
         {
-            Debug.Log("Bomb hit ");
             FindObjectOfType<MapDestructor>().Explode(transform.position, explosionPower);
-            //player.GetComponent<Controller>().myBombs.Dequeue();
             Destroy(gameObject);
+            owner.GetComponent<Character>().dequeueBomb();
         }
-        Debug.Log("I triggered");
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+        }
     }
 }

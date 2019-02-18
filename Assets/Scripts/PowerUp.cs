@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    private float maxSpeed = 600f;
-    private float maxPower = 7f;
+    protected float maxSpeed = 600f;
+    protected float maxPower = 7f;
+    protected float maxBomb = 6f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -14,11 +15,8 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    void PickUp(Collider2D player)
+    protected virtual void PickUp(Collider2D player)
     {
-        Controller stats = player.GetComponent<Controller>();
-        stats.speed = Mathf.Min(stats.speed + 100, maxSpeed);
-        stats.expPower = Mathf.Min(stats.expPower + 1, maxPower);
-        Destroy(gameObject);
+        
     }
 }
