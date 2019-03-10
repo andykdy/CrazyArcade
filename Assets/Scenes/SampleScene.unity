@@ -1305,6 +1305,8 @@ MonoBehaviour:
   tilemap: {fileID: 1277803986}
   nodePrefab: {fileID: 183852392222446757, guid: 4028be092a9935949b5e31169f21409f,
     type: 3}
+  AIPlayer: {fileID: 4962632170256363235, guid: ea8ca2140ff6b9e429d35085fa1e19e6,
+    type: 3}
 --- !u!4 &1123591216
 Transform:
   m_ObjectHideFlags: 0
@@ -2524,7 +2526,7 @@ PrefabInstance:
     - target: {fileID: 3495610985307098474, guid: 630ef6ae3f9761342b8ba04da55178db,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3495610985307098474, guid: 630ef6ae3f9761342b8ba04da55178db,
         type: 3}
@@ -2617,12 +2619,12 @@ PrefabInstance:
     - target: {fileID: 4962632170256363246, guid: ea8ca2140ff6b9e429d35085fa1e19e6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.47
+      value: 3.46
       objectReference: {fileID: 0}
     - target: {fileID: 4962632170256363246, guid: ea8ca2140ff6b9e429d35085fa1e19e6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.47
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4962632170256363246, guid: ea8ca2140ff6b9e429d35085fa1e19e6,
         type: 3}
@@ -2674,5 +2676,15 @@ PrefabInstance:
       propertyPath: AIMangPrefab
       value: 
       objectReference: {fileID: 1123591214}
+    - target: {fileID: 4962632170256363232, guid: ea8ca2140ff6b9e429d35085fa1e19e6,
+        type: 3}
+      propertyPath: tileMap
+      value: 
+      objectReference: {fileID: 1277803986}
+    - target: {fileID: 4962632170256363244, guid: ea8ca2140ff6b9e429d35085fa1e19e6,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea8ca2140ff6b9e429d35085fa1e19e6, type: 3}

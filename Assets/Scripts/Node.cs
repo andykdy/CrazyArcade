@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    public enum NodeStatus {Occupied, Breakable, Empty, Danger, Priority}
+    public enum NodeStatus {Occupied, Breakable, Empty, Danger, Priority};
+    public List<GameObject> adjacentNodes;
+    public float counter;
 
     private NodeStatus status;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        adjacentNodes = new List<GameObject>();
     }
 
     public void setStatus(NodeStatus givenStatus)
     {
         status = givenStatus;
     }
-    
+
+    public void addAdjacent(GameObject node)
+    {
+        adjacentNodes.Add(node);
+    }
+
+//    public override string ToString()
+//    {
+//        return (string)gameObject.transform.position.x + gameObject.transform.position.y + counter;
+//    }
 }
