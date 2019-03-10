@@ -19,6 +19,10 @@ public class Node : MonoBehaviour
     {
         status = givenStatus;
     }
+    public NodeStatus getStatus()
+    {
+        return status;
+    }
 
     public void addAdjacent(GameObject node)
     {

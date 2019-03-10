@@ -79,22 +79,23 @@ public class AIManager : MonoBehaviour
             }
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (mystate == BotState.Idle){
             currentNode = worldToNode(AIPlayer.transform.position);
+            //AIPlayer.GetComponent<EnemyController>().setVelocity(new Vector2(AIPlayer.transform.position.x,AIPlayer.transform.position.y) - new Vector2(2.5f,-3.5f));
             List<GameObject> adjNode = currentNode.GetComponent<Node>().adjacentNodes;
-            mystate = BotState.Moving;
-            
+            List<GameObject> availableNode = new List<GameObject>();
+            foreach (var t in adjNode){
+                if (t.GetComponent<Node>().getStatus() == Node.NodeStatus.Empty){
+                    availableNode.Add(t);
+                }
+            }
+            Debug.Log(availableNode.Count);
+            AIPlayer.GetComponent<EnemyController>().setVelocity((Vector2) AIPlayer.transform.position - (Vector2)availableNode[Random.Range(0, availableNode.Count - 1)].transform.position);
         }
-//        worldToNode(GameObject.Find("Enemy").transform.position), worldToNode(new Vector2(2.5f, -3.5f)));
     }
     // Vector2(2.5,-3.5)
-
-    private void moveTo(GameObject pos)
-    {
-        
-    }
 
     private GameObject worldToNode(Vector2 worldCord)
     {

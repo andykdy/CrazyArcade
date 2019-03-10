@@ -22,4 +22,9 @@ public class EnemyController : Character
 			}
 		}
 	}
+
+	public void setVelocity(Vector2 vel)
+	{
+		_body.velocity = vel;
+	}
 }
